@@ -23,7 +23,7 @@ def smallest_multiple(from_num, to_num):
 def prime_factors(n, start=2):
     pool = range(start, int(n ** 0.5) + 1)
     factor = next((x for x in pool if (n % x == 0)), None)
-    return ([factor] + prime_factors(n / factor, factor) if factor else [n])
+    return ([factor] + prime_factors(n // factor, factor) if factor else [n])
 
 
 cProfile.run('print(smallest_multiple(1, 20))')
